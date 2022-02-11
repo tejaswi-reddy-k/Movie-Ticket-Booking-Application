@@ -4,10 +4,12 @@ import java.time.LocalTime;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Show {
-
+	
+	@Id
 	private int showId;
 	private LocalTime showStartTime;
 	private LocalTime showEndTime;

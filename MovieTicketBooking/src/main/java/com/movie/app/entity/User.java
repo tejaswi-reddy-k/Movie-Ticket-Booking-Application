@@ -1,7 +1,10 @@
 package com.movie.app.entity;
 
+import javax.persistence.Id;
+
 public class User {
 	
+	@Id
 	private int userId;
 	private String password;
 	private String role;

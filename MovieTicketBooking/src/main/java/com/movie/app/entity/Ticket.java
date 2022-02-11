@@ -3,10 +3,12 @@ package com.movie.app.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Ticket {
 	
+	@Id
 	private int ticketId;
 	private int noOfSeats;
 	private List<String> seatNumber;

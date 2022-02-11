@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Screen {
 	
+	@Id
 	private int screenId;
 	private int theatreId;
 	private String screenName;

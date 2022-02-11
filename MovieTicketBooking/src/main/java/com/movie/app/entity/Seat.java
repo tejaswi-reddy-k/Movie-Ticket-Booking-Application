@@ -3,10 +3,12 @@ package com.movie.app.entity;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Seat {
 	
+	@Id
 	private int seatId;
 	private String seatNumber;
 	private String type;
