@@ -1,0 +1,17 @@
+# Movie-Ticket-Booking-Application
+CREATE TABLE `movieticketbooking`.`Event` (
+  `eventId` INT NOT NULL,
+  `eventName` VARCHAR(45) NOT NULL,
+  `eventType` VARCHAR(45) NOT NULL,
+  `eventduration` VARCHAR(45) NOT NULL,
+  `eventlanguage` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`eventId`));
+  
+  SELECT * FROM movieticketbooking.event;
+INSERT INTO `movieticketbooking`.`event` (`eventId`, `eventName`, `eventType`, `eventduration`, `eventlanguage`) VALUES ('1', 'FrontRow OpenMic', 'Standup comedy', '2hours', 'English');
+INSERT INTO `movieticketbooking`.`event` (`eventId`, `eventName`, `eventType`, `eventduration`, `eventlanguage`) VALUES ('2', 'Pure Veg Jokes by Saikiran', 'comedy shows', '1hr 15min', 'English');
+INSERT INTO `movieticketbooking`.`event` (`eventId`, `eventName`, `eventType`, `eventduration`, `eventlanguage`) VALUES ('3', 'Changing Face ', 'Conference-online streaming event', '1hr', 'English');
+INSERT INTO `movieticketbooking`.`event` (`eventId`, `eventName`, `eventType`, `eventduration`, `eventlanguage`) VALUES ('4', 'SunnyTunes ft. Shiv Menon Duo', 'Music show', '2hr', 'English');
+INSERT INTO `movieticketbooking`.`event` (`eventId`, `eventName`, `eventType`, `eventduration`, `eventlanguage`) VALUES ('5', 'Pay Me For My Therapy', 'standup comedy', '1hr', 'English-Hindi');
+INSERT INTO `movieticketbooking`.`event` (`eventId`, `eventName`, `eventType`, `eventduration`, `eventlanguage`) VALUES ('6', 'Saturday Night by Kalakaarii Band', 'comdey show', '4hr', 'Telugu');
+
