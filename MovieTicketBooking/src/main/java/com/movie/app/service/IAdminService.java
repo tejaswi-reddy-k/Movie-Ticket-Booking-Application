@@ -1,7 +1,10 @@
 package com.movie.app.service;
 
+import org.springframework.stereotype.Service;
+
 import com.movie.app.entity.Movie;
 
+@Service
 public interface IAdminService {
 
 	public String addMovieByLocation(Movie movie, String location);

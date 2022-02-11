@@ -1,5 +1,8 @@
 package com.movie.app.repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import com.movie.app.entity.Movie;
 import com.movie.app.util.JPAUtil;
@@ -17,7 +20,9 @@ public class IAdminRepositoryImpl implements IAdminRepository {
 		
 		try {
 			entityManager.getTransaction().begin();
-			
+			List<String> loc = new ArrayList<>();
+			loc.add(location);
+			movie.setLocations(loc);
 			entityManager.persist(movie);
 			entityManager.getTransaction().commit();
 		} catch (Exception ex) {
