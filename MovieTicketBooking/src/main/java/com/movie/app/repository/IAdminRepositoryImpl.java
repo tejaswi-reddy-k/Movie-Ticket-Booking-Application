@@ -17,6 +17,7 @@ public class IAdminRepositoryImpl implements IAdminRepository {
 		
 		try {
 			entityManager.getTransaction().begin();
+			
 			entityManager.persist(movie);
 			entityManager.getTransaction().commit();
 		} catch (Exception ex) {
@@ -32,6 +33,7 @@ public class IAdminRepositoryImpl implements IAdminRepository {
 
 		try {
 			entityManager.getTransaction().begin();
+			movie.setMovieGenre(genre);
 			entityManager.persist(movie);
 			entityManager.getTransaction().commit();
 		} catch (Exception ex) {
@@ -46,6 +48,7 @@ public class IAdminRepositoryImpl implements IAdminRepository {
 	public String addMovieByRating(Movie movie, double rating) {
 		try {
 			entityManager.getTransaction().begin();
+			movie.setRating(rating);
 			entityManager.persist(movie);
 			entityManager.getTransaction().commit();
 		} catch (Exception ex) {
