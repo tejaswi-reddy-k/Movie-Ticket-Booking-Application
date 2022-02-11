@@ -1,18 +1,12 @@
 package com.movie.app.repository;
 
-import java.util.List;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import com.movie.app.entity.Customer;
-import com.movie.app.exceptions.CustomerNotFoundException;
 
-public interface ICustomerRepository {
+@Repository
+public interface ICustomerRepository extends CrudRepository<Customer, Integer> {
+
 	
-	public Customer addCustomer(Customer customer);
-	public Customer updateCustomer(Customer customer) throws CustomerNotFoundException;
-	public Customer deleteCustomer(Customer customer) throws CustomerNotFoundException;
-	public Customer viewCustomer(int custid) throws CustomerNotFoundException;
-	public List<Customer> viewAllCustomers(int movieid);
-	public List<Customer> viewCustomerList(int showid);
-	//public List<Customer> viewCustomerList(int theatreid);
-
 }
