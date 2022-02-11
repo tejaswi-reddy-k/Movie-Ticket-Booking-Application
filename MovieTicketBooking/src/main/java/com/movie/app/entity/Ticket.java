@@ -4,18 +4,11 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-<<<<<<< Updated upstream
-
-@Entity
-public class Ticket {
-	
-=======
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Ticket {
->>>>>>> Stashed changes
 	@Id
 	private int ticketId;
 	private int noOfSeats;

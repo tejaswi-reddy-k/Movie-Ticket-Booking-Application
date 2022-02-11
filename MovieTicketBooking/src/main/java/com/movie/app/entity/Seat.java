@@ -4,18 +4,12 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-<<<<<<< Updated upstream
-=======
 import javax.persistence.Table;
->>>>>>> Stashed changes
+
 
 @Entity
 @Table(name="seat")
 public class Seat {
-<<<<<<< Updated upstream
-	
-=======
->>>>>>> Stashed changes
 	@Id
 	private int seatId;
 	private String seatNumber;

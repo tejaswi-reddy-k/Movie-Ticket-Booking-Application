@@ -5,20 +5,12 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-<<<<<<< Updated upstream
-
-@Entity
-public class Show {
-	
-	@Id
-=======
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Show {
     @Id
->>>>>>> Stashed changes
 	private int showId;
 	private LocalTime showStartTime;
 	private LocalTime showEndTime;

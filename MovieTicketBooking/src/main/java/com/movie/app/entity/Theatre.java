@@ -5,10 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-<<<<<<< Updated upstream
-=======
 import javax.persistence.OneToMany;
->>>>>>> Stashed changes
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
