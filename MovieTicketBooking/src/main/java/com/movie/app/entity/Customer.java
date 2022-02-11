@@ -8,13 +8,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String userId;
+	@NotNull(message="customer name field should not be left blank")
 	private String customerName;
+	@Size(min=10,max=10,message="Enter a valid phone number")
 	private String mobileNumber;
 	@OneToMany
 	private List<Ticket> myTickets;
