@@ -5,14 +5,22 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+<<<<<<< Updated upstream
 
 @Entity
 public class Screen {
 	
+=======
+import javax.persistence.OneToMany;
+
+@Entity
+public class Screen {
+>>>>>>> Stashed changes
 	@Id
 	private int screenId;
 	private int theatreId;
 	private String screenName;
+	@OneToMany
 	private List<Show> showList;
 	private int rows;
 	private int columns;

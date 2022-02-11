@@ -5,6 +5,10 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+<<<<<<< Updated upstream
+=======
+import javax.persistence.OneToMany;
+>>>>>>> Stashed changes
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +17,13 @@ import lombok.Data;
 @Data
 @Entity
 public class Theatre {
-	
+	@Id
 	private int theatreId;
 	private String theatreName;
 	private String theatreCity;
+	@OneToMany
 	private List<Movie> listOfMovies;
+	@OneToMany
 	private List<Screen> listOfScreens;
 	private List<Event> listofEvents;
 	private String managerName;

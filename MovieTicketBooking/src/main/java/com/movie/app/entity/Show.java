@@ -5,15 +5,26 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+<<<<<<< Updated upstream
 
 @Entity
 public class Show {
 	
 	@Id
+=======
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Show {
+    @Id
+>>>>>>> Stashed changes
 	private int showId;
 	private LocalTime showStartTime;
 	private LocalTime showEndTime;
 	private String showName;
+	@ManyToOne
+    @JoinColumn(name = "movie_id")
 	private Movie movie;
 	private int screenId;
 	private int theatreId;

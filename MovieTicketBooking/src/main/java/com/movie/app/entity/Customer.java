@@ -4,13 +4,19 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Customer {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String userId;
 	private String customerName;
 	private String mobileNumber;
+	@OneToMany
 	private List<Ticket> myTickets;
 	public String getUserId() {
 		return userId;

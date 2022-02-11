@@ -8,7 +8,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Movie {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 	@Id
 	private int movieId;
 	private String movieName;

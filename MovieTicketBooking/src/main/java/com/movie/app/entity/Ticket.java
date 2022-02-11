@@ -4,14 +4,24 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+<<<<<<< Updated upstream
 
 @Entity
 public class Ticket {
 	
+=======
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Ticket {
+>>>>>>> Stashed changes
 	@Id
 	private int ticketId;
 	private int noOfSeats;
-	private List<String> seatNumber;
+	@OneToMany
+	private List<Seat> seatNumber;
+	@ManyToOne
 	private Booking bookingRef;
 	private boolean ticketStatus;
 	private String screenName;
@@ -27,10 +37,10 @@ public class Ticket {
 	public void setNoOfSeats(int noOfSeats) {
 		this.noOfSeats = noOfSeats;
 	}
-	public List<String> getSeatNumber() {
+	public List<Seat> getSeatNumber() {
 		return seatNumber;
 	}
-	public void setSeatNumber(List<String> seatNumber) {
+	public void setSeatNumber(List<Seat> seatNumber) {
 		this.seatNumber = seatNumber;
 	}
 	public Booking getBookingRef() {
