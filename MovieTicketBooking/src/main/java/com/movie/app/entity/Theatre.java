@@ -2,8 +2,12 @@ package com.movie.app.entity;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -15,14 +19,22 @@ import lombok.Data;
 public class Theatre {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name = "theatre_id")
 	private Integer theatreId;
+	@Column(name = "theatre_name")
 	private String theatreName;
+	@Column(name = "theatre_location")
 	private String theatreLocation;
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "movieId")
+	@JoinColumn(name = "movie_id")
 	private List<Movie> listOfMovies;
-	private Integer totalseats;
-	private Integer bookedseats;
-	private Integer seatcost;
+	@Column(name = "total_seats")
+	private Integer totalSeats;
+	@Column(name = "bookedSeats")
+	private Integer bookedSeats;
+	@Column(name = "seat_cost")
+	private Integer seatCost;
+	@Column(name = "movie_id")
 	private Integer movieId;
 }
