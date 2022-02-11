@@ -1,5 +1,6 @@
 package com.movie.app.service;
 
+import com.movie.app.entity.Movie;
 import com.movie.app.repository.IAdminRepository;
 
 public class IAdminServiceImpl implements IAdminService {
@@ -7,18 +8,18 @@ public class IAdminServiceImpl implements IAdminService {
 	private IAdminRepository repo;
 
 	@Override
-	public String addMovieByLocation(String location) {
-		return repo.addMovieByLocation(location);
+	public String addMovieByLocation(Movie movie,String location) {
+		return repo.addMovieByLocation(movie,location);
 	}
 
 	@Override
-	public String addMovieByCategory(String genre) {
-		return repo.addMovieByCategory(genre);
+	public String addMovieByCategory(Movie movie,String genre) {
+		return repo.addMovieByCategory(movie,genre);
 	}
 
 	@Override
-	public String addMovieByRating(int rating) {
-		return repo.addMovieByRating(rating);
+	public String addMovieByRating(Movie movie,double rating) {
+		return repo.addMovieByRating(movie,rating);
 	}
 
 }

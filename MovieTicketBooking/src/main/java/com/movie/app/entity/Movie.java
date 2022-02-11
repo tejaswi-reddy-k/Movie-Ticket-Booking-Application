@@ -3,56 +3,59 @@ package com.movie.app.entity;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Movie {
-	
+
+	@Id
 	private int movieId;
 	private String movieName;
 	private String movieGenre;
 	private String movieHours;
 	private String movieLanguage;
 	private String movieDescription;
-	public int getMovieId() {
-		return movieId;
+	private double rating;
+
+	public Movie() {
+
 	}
-	public void setMovieId(int movieId) {
+
+	public Movie(int movieId, String movieName, String movieGenre, String movieHours, String movieLanguage,
+			String movieDescription, double rating) {
+		super();
 		this.movieId = movieId;
-	}
-	public String getMovieName() {
-		return movieName;
-	}
-	public void setMovieName(String movieName) {
 		this.movieName = movieName;
-	}
-	public String getMovieGenre() {
-		return movieGenre;
-	}
-	public void setMovieGenre(String movieGenre) {
 		this.movieGenre = movieGenre;
-	}
-	public String getMovieHours() {
-		return movieHours;
-	}
-	public void setMovieHours(String movieHours) {
 		this.movieHours = movieHours;
-	}
-	public String getMovieLanguage() {
-		return movieLanguage;
-	}
-	public void setMovieLanguage(String movieLanguage) {
 		this.movieLanguage = movieLanguage;
-	}
-	public String getMovieDescription() {
-		return movieDescription;
-	}
-	public void setMovieDescription(String movieDescription) {
 		this.movieDescription = movieDescription;
+		this.rating = rating;
 	}
+
+	public Movie(String movieName, String movieGenre, String movieHours, String movieLanguage, String movieDescription,
+			double rating) {
+		super();
+		this.movieName = movieName;
+		this.movieGenre = movieGenre;
+		this.movieHours = movieHours;
+		this.movieLanguage = movieLanguage;
+		this.movieDescription = movieDescription;
+		this.rating = rating;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [movieId=" + movieId + ", movieName=" + movieName + ", movieGenre=" + movieGenre + ", movieHours="
+				+ movieHours + ", movieLanguage=" + movieLanguage + ", movieDescription=" + movieDescription
+				+ ", rating=" + rating + "]";
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(movieDescription, movieGenre, movieHours, movieId, movieLanguage, movieName);
+		return Objects.hash(movieDescription, movieGenre, movieHours, movieId, movieLanguage, movieName, rating);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -64,12 +67,8 @@ public class Movie {
 		Movie other = (Movie) obj;
 		return Objects.equals(movieDescription, other.movieDescription) && Objects.equals(movieGenre, other.movieGenre)
 				&& Objects.equals(movieHours, other.movieHours) && movieId == other.movieId
-				&& Objects.equals(movieLanguage, other.movieLanguage) && Objects.equals(movieName, other.movieName);
-	}
-	@Override
-	public String toString() {
-		return "Movie [movieId=" + movieId + ", movieName=" + movieName + ", movieGenre=" + movieGenre + ", movieHours="
-				+ movieHours + ", movieLanguage=" + movieLanguage + ", movieDescription=" + movieDescription + "]";
+				&& Objects.equals(movieLanguage, other.movieLanguage) && Objects.equals(movieName, other.movieName)
+				&& Double.doubleToLongBits(rating) == Double.doubleToLongBits(other.rating);
 	}
 
 }
