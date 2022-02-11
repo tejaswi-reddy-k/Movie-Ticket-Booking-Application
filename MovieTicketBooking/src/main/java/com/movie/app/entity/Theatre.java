@@ -4,7 +4,13 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@AllArgsConstructor
+@Data
 @Entity
 public class Theatre {
 	
@@ -13,8 +19,11 @@ public class Theatre {
 	private String theatreCity;
 	private List<Movie> listOfMovies;
 	private List<Screen> listOfScreens;
+	private List<Event> listofEvents;
 	private String managerName;
 	private String managerContact;
+	
+	@Id
 	public int getTheatreId() {
 		return theatreId;
 	}
@@ -57,9 +66,16 @@ public class Theatre {
 	public void setManagerContact(String managerContact) {
 		this.managerContact = managerContact;
 	}
+	
+	public List<Event> getListofEvents() {
+		return listofEvents;
+	}
+	public void setListofEvents(List<Event> listofEvents) {
+		this.listofEvents = listofEvents;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(listOfMovies, listOfScreens, managerContact, managerName, theatreCity, theatreId,
+		return Objects.hash(listOfMovies, listOfScreens,listofEvents, managerContact, managerName, theatreCity, theatreId,
 				theatreName);
 	}
 	@Override
@@ -71,7 +87,7 @@ public class Theatre {
 		if (getClass() != obj.getClass())
 			return false;
 		Theatre other = (Theatre) obj;
-		return Objects.equals(listOfMovies, other.listOfMovies) && Objects.equals(listOfScreens, other.listOfScreens)
+		return Objects.equals(listOfMovies, other.listOfMovies) && Objects.equals(listOfScreens, other.listOfScreens)&&Objects.equals(listofEvents, other.listofEvents)
 				&& Objects.equals(managerContact, other.managerContact)
 				&& Objects.equals(managerName, other.managerName) && Objects.equals(theatreCity, other.theatreCity)
 				&& theatreId == other.theatreId && Objects.equals(theatreName, other.theatreName);
@@ -79,8 +95,8 @@ public class Theatre {
 	@Override
 	public String toString() {
 		return "Theatre [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreCity=" + theatreCity
-				+ ", listOfMovies=" + listOfMovies + ", listOfScreens=" + listOfScreens + ", managerName=" + managerName
-				+ ", managerContact=" + managerContact + "]";
+				+ ", listOfMovies=" + listOfMovies + ", listOfScreens=" + listOfScreens + ", listofEvents="
+				+ listofEvents + ", managerName=" + managerName + ", managerContact=" + managerContact + "]";
 	}
-
+	
 }
