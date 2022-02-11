@@ -15,5 +15,7 @@ public interface IBookingService {
 	public List<Booking> showAllBookings(LocalDate bookingdate);
 	public List<Booking> showBookingList(int showid);
 	public double calculateTotalCost(int bookingid);
+	
+	public void diplay();
 
 }
