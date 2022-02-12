@@ -5,7 +5,6 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,17 +13,17 @@ import lombok.Data;
 @Data
 @Entity
 public class Theatre {
-	@Id
+	
 	private int theatreId;
 	private String theatreName;
 	private String theatreCity;
-	@OneToMany
+	private String theatreLocation;
 	private List<Movie> listOfMovies;
-	@OneToMany
-	private List<Screen> listOfScreens;
+	private String screenName;
+	/*private List<Screen> listOfScreens;
 	private List<Event> listofEvents;
 	private String managerName;
-	private String managerContact;
+	private String managerContact;*/
 	
 	@Id
 	public int getTheatreId() {
@@ -51,35 +50,24 @@ public class Theatre {
 	public void setListOfMovies(List<Movie> listOfMovies) {
 		this.listOfMovies = listOfMovies;
 	}
-	public List<Screen> getListOfScreens() {
-		return listOfScreens;
+	
+	public String getTheatreLocation() {
+		return theatreLocation;
 	}
-	public void setListOfScreens(List<Screen> listOfScreens) {
-		this.listOfScreens = listOfScreens;
-	}
-	public String getManagerName() {
-		return managerName;
-	}
-	public void setManagerName(String managerName) {
-		this.managerName = managerName;
-	}
-	public String getManagerContact() {
-		return managerContact;
-	}
-	public void setManagerContact(String managerContact) {
-		this.managerContact = managerContact;
+	public void setTheatreLocation(String theatreLocation) {
+		this.theatreLocation = theatreLocation;
 	}
 	
-	public List<Event> getListofEvents() {
-		return listofEvents;
+	public String getScreenName() {
+		return screenName;
 	}
-	public void setListofEvents(List<Event> listofEvents) {
-		this.listofEvents = listofEvents;
+	public void setScreenName(String screenName) {
+		this.screenName = screenName;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(listOfMovies, listOfScreens,listofEvents, managerContact, managerName, theatreCity, theatreId,
-				theatreName);
+		return Objects.hash(listOfMovies, theatreCity, theatreId,
+				theatreName,theatreLocation,screenName);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -90,16 +78,17 @@ public class Theatre {
 		if (getClass() != obj.getClass())
 			return false;
 		Theatre other = (Theatre) obj;
-		return Objects.equals(listOfMovies, other.listOfMovies) && Objects.equals(listOfScreens, other.listOfScreens)&&Objects.equals(listofEvents, other.listofEvents)
-				&& Objects.equals(managerContact, other.managerContact)
-				&& Objects.equals(managerName, other.managerName) && Objects.equals(theatreCity, other.theatreCity)
-				&& theatreId == other.theatreId && Objects.equals(theatreName, other.theatreName);
+		return Objects.equals(listOfMovies, other.listOfMovies) 
+				 && Objects.equals(theatreCity, other.theatreCity)
+				&& theatreId == other.theatreId && Objects.equals(theatreName, other.theatreName) && Objects.equals(theatreLocation, other.theatreLocation) && Objects.equals(screenName, other.screenName);
 	}
 	@Override
 	public String toString() {
 		return "Theatre [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreCity=" + theatreCity
-				+ ", listOfMovies=" + listOfMovies + ", listOfScreens=" + listOfScreens + ", listofEvents="
-				+ listofEvents + ", managerName=" + managerName + ", managerContact=" + managerContact + "]";
+				+ ", theatreLocation=" + theatreLocation + ", listOfMovies=" + listOfMovies + ", screenName="
+				+ screenName + "]";
 	}
 	
+	
 }
+
