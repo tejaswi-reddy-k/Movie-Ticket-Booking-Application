@@ -15,7 +15,7 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
-	@NotNull(message = "AdminName should not be left blank")
+	@NotNull(message = "Admin Name should not be left blank")
 	@Size(min=8,max=18,message="adminName should be min size of 8 and max of 18")
 	private String adminName;
 	
