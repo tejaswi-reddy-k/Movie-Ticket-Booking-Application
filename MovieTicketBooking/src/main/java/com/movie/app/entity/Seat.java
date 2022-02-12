@@ -4,16 +4,32 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="seat")
 public class Seat {
+	
+	public Seat() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Seat(int seatId, @Min(value = 50, message = "Min Seats booked is 50") String seatNumber,
+			@NotNull(message = "Seat type Cannot be left Blank") String type,
+			@Min(value = 100, message = "Min range of seat cost is 100.00") double price) {
+		super();
+		this.seatId = seatId;
+		this.seatNumber = seatNumber;
+		this.type = type;
+		this.price = price;
+	}
 	@Id
 	private int seatId;
+	@Min(value = 50, message = "Min Seats booked is 50")
 	private String seatNumber;
+	@NotNull(message = "Seat type Cannot be left Blank")
 	private String type;
+	@Min(value = (long) 100.00, message = "Min range of seat cost is 100.00")
 	private double price;
 	public int getSeatId() {
 		return seatId;
@@ -59,5 +75,6 @@ public class Seat {
 	public String toString() {
 		return "Seat [seatId=" + seatId + ", seatNumber=" + seatNumber + ", type=" + type + ", price=" + price + "]";
 	}
+	
 
 }
