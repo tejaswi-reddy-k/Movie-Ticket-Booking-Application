@@ -14,14 +14,12 @@ import lombok.Data;
 @Data
 @Entity
 public class Theatre {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "theatre_id")
-	private Integer theatreId;
-	@Column(name = "theatre_name")
+	private int theatreId;
 	private String theatreName;
-	@Column(name = "theatre_location")
+	private String theatreCity;
 	private String theatreLocation;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "movie_id")
@@ -34,5 +32,4 @@ public class Theatre {
 	private Integer seatCost;
 	@Column(name = "movie_id")
 	private Integer movieId;
-
 }
