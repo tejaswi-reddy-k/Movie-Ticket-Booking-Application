@@ -1,8 +1,6 @@
 package com.movie.app.entity;
 
 import java.util.List;
-
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-
+import javax.persistence.ManyToMany;
 import lombok.Data;
 
 @Data
@@ -26,7 +23,7 @@ public class Theatre {
 	private String theatreName;
 	@Column(name = "theatre_location")
 	private String theatreLocation;
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "movie_id")
 	private List<Movie> listOfMovies;
 	@Column(name = "total_seats")
@@ -37,4 +34,5 @@ public class Theatre {
 	private Integer seatCost;
 	@Column(name = "movie_id")
 	private Integer movieId;
+
 }

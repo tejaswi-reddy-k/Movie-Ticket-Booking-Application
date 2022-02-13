@@ -25,8 +25,9 @@ public class ITheatreServiceImpl implements ITheatreService {
 	}
 
 	@Override
-	public Theatre addTheatre(Theatre theatre) {
-		return repository.save(theatre);
+	public String addTheatre(Theatre theatre) {
+		repository.save(theatre);
+		return "Theatre added succesfully";
 	}
 	
 	@Override

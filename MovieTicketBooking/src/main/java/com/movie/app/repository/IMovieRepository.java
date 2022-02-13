@@ -1,19 +1,11 @@
 package com.movie.app.repository;
 
-import java.time.LocalDate;
-import java.util.List;
-
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import com.movie.app.entity.Movie;
-import com.movie.app.exceptions.MovieNotFoundException;
 
-public interface IMovieRepository {
+@Repository
+public interface IMovieRepository extends JpaRepository<Movie, Integer> {
 
-	public Movie addMovie(Movie movie);
-	public Movie removeMovie(int movieid) throws MovieNotFoundException;
-	public Movie updateMovie(Movie movie) throws MovieNotFoundException;
-	public Movie viewMovie(int movieid) throws MovieNotFoundException;
-	public List<Movie> viewMovieList();
-	public List<Movie> viewMovieList(int theatreid);
-	public List<Movie> viewMovieList(LocalDate date);
-	
+
 }
