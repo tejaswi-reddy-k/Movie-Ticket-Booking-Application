@@ -1,19 +1,19 @@
 package com.movie.app.repository;
 
-import java.time.LocalDate;
-import java.util.List;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import com.movie.app.entity.Booking;
-import com.movie.app.exceptions.BookingNotFoundException;
 
-public interface IBookingRepository {
+@Repository
+public interface IBookingRepository extends CrudRepository<Booking, Integer> ,
+CustomBookingRepository {
+
+
 	
-	public Booking addBooking(Booking booking);
-	public Booking updateBooking(Booking booking) throws BookingNotFoundException;
-	public Booking cancelBooking(int bookingid) throws BookingNotFoundException;
-	public List<Booking> showAllBookings(int movieid);
-	public List<Booking> showAllBookings(LocalDate bookingdate);
-	public List<Booking> showBookingList(int showid);
-	public double calculateTotalCost(int bookingid);
+	// findALL , Save, findById , delete 
+				// +
+				
+				// methods from custom event repository
 
 }
