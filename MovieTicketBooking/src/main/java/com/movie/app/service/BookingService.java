@@ -27,10 +27,11 @@ public class BookingService implements IBookingService {
 	ITicketRepository ticketRepository;
 	
 	@Override
-	public Booking getBookingById(int bookingid) {
+	 public void deleteBookingByID(int bookingid) {
+		bookingRepository.deleteById(bookingid);
 		
-		return bookingRepository.findById(bookingid).get();
 	}
+	
 	
 	@Override
 	public List<Booking> viewBookingList(){
