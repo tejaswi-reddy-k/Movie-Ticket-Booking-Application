@@ -1,18 +1,9 @@
 package com.movie.app.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.movie.app.entity.Customer;
-import com.movie.app.exceptions.CustomerNotFoundException;
 
-public interface ICustomerRepository {
-	
-	public Customer addCustomer(Customer customer);
-	public Customer updateCustomer(Customer customer) throws CustomerNotFoundException;
-	public Customer deleteCustomer(Customer customer) throws CustomerNotFoundException;
-	public Customer viewCustomer(int custid) throws CustomerNotFoundException;
-	public List<Customer> viewAllCustomers(int movieid);
-	public List<Customer> viewCustomerList(int showid);
-	//public List<Customer> viewCustomerList(int theatreid);
+public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
 
 }
