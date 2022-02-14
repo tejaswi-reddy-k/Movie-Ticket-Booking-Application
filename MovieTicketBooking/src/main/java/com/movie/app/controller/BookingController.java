@@ -62,17 +62,25 @@ public class BookingController {
 		Booking response = service.addBooking(booking);
 		return service.addBooking(booking);
 	}
-	@DeleteMapping("/deleteBooking/{boookingid}")
-	public boolean deleteAccount(@PathVariable int bookingId) {
-		Booking b = service.getBookingById(bookingId);
-		if(b!= null) {
-			service.deleteBookingByID(bookingId);;
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+	
+	
+	@DeleteMapping("/deletebooking/{bookingid}")
+	public ResponseEntity<String> cancelBooking(@PathVariable("bookingid") Integer bookingid) throws BookingNotFoundException {
+		Booking response = service.cancelBooking(bookingid);
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/viewticketsbybookingid/{bookingid}")
+	public ResponseEntity<List<Ticket>> viewTicketsByBookingId(@PathVariable("bookingid") Integer bookingId)
+			throws BookingNotFoundException {
+		List<Ticket> response = service.viewTicketsByBookingId(bookingId);
+		return new ResponseEntity<List<Ticket>>(response, HttpStatus.OK);
+	}
+
+	@GetMapping("/getbookingbytransactionid/{transactionid}")
+	public ResponseEntity<String> getBookingsByTransactionId(@PathVariable("transactionId") int transactionid) throws BookingNotFoundException {
+		List<Booking> response = service.getBookingsByTransactionId(transactionid);
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 	
 
