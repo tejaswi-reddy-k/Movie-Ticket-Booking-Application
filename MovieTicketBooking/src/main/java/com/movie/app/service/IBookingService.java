@@ -31,7 +31,7 @@ public interface IBookingService {
 	
 	public Booking getBookingById(int bookingid);
 	public List<Booking> viewBookingList();
-	public boolean deleteBookingByID(int bookingid);
+	public void  deleteBookingByID(int bookingid);
 	public boolean checkBookingById(int bookingid);
 	
 	public List<Ticket> viewTicketsByBookingId(int bookingid) throws BookingNotFoundException;
