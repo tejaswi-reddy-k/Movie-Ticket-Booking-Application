@@ -57,4 +57,11 @@ public class MovieController {
 		List<Theatre> response = service.viewTheatresByMovieId(movieId);
 		return new ResponseEntity<List<Theatre>>(response, HttpStatus.OK);
 	}
+
+	@GetMapping("/viewmoviesbygenre/{genre}")
+	public ResponseEntity<List<Movie>> viewMoviesByGenre(@PathVariable("genre") String genre)
+			throws MovieNotFoundException {
+		List<Movie> response = service.viewMoviesByGenre(genre);
+		return new ResponseEntity<List<Movie>>(response, HttpStatus.OK);
+	}
 }

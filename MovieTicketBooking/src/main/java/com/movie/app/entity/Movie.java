@@ -35,4 +35,5 @@ public class Movie {
 	private List<Theatre> listOfTheatres;
 	@Column(name = "theatre_id")
 	private Integer theatre_id;
+
 }

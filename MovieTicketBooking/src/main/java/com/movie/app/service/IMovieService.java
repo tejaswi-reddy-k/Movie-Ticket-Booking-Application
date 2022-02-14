@@ -16,6 +16,8 @@ public interface IMovieService {
 	public String updateMovie(Movie movie) throws MovieNotFoundException;
 
 	public Movie viewMovie(int movieid) throws MovieNotFoundException;
+	
+	public List<Movie> viewMoviesByGenre(String genre) throws MovieNotFoundException;
 
 	public List<Movie> viewMovieList();
 

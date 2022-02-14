@@ -2,7 +2,6 @@ package com.movie.app.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.movie.app.entity.Movie;
@@ -67,6 +66,11 @@ public class IMovieServiceImpl implements IMovieService {
 		if (!movieoptional.isPresent())
 			throw new MovieNotFoundException("Movie not found");
 		return movieoptional.get().getListOfTheatres();
+	}
+
+	@Override
+	public List<Movie> viewMoviesByGenre(String genre) throws MovieNotFoundException {
+		return repository.findByGenre(genre);
 	}
 
 }
