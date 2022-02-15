@@ -24,6 +24,7 @@ private String address;
 private String mobileNumber;
 @Email
 private String email;
+@Size(min=8,max=16,message="Enter a valid Password")
 private String password;
 public int getCustomerId() {
 	return customerId;
