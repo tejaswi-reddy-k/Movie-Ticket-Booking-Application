@@ -27,13 +27,6 @@ public class BookingService implements IBookingService {
 	ITicketRepository ticketRepository;
 	
 	@Override
-	 public void deleteBookingByID(int bookingid) {
-		bookingRepository.deleteById(bookingid);
-		
-	}
-	
-	
-	@Override
 	public List<Booking> viewBookingList(){
 		List<Booking> list = (List<Booking>) bookingRepository.findAll();
 	     return list;		
@@ -106,5 +99,22 @@ public class BookingService implements IBookingService {
 		if (!bookingoptional.isPresent())
 			throw new BookingNotFoundException("Booking not found");
 		return bookingoptional.get().getListOfticket();
+	}
+
+	@Override
+	public Booking getBookingById(int bookingid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Booking> getBookingsByTransactionId(int transactionid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<Booking> viewBookingByDate(LocalDate date1, LocalDate date2) throws BookingNotFoundException {
+		return bookingRepository.findByDate(date1, date2);
 	}
 }

@@ -31,11 +31,13 @@ public interface IBookingService {
 	
 	public Booking getBookingById(int bookingid);
 	public List<Booking> viewBookingList();
-	public void  deleteBookingByID(int bookingid);
+	public boolean  deleteBookingByID(int bookingid);
 	public boolean checkBookingById(int bookingid);
 	
 	public List<Ticket> viewTicketsByBookingId(int bookingid) throws BookingNotFoundException;
 	//public boolean addTicket(int bookingid,int ticketid);
+	public List<Booking> getBookingsByTransactionId(int transactionid);
+	public List<Booking> viewBookingByDate(LocalDate date1, LocalDate date2) throws BookingNotFoundException;
 
 
 }

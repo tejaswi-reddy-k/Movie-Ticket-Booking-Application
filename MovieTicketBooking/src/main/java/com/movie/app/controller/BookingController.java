@@ -1,5 +1,6 @@
 package com.movie.app.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.movie.app.entity.Booking;
 import com.movie.app.entity.Movie;
 import com.movie.app.entity.Theatre;
+import com.movie.app.entity.Ticket;
 import com.movie.app.exceptions.BookingNotFoundException;
 import com.movie.app.exceptions.MovieNotFoundException;
 import com.movie.app.service.IBookingService;
@@ -83,6 +85,12 @@ public class BookingController {
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 	
+	@GetMapping("/viewbookingsbydate/{date1}/{date2}")
+	public ResponseEntity<List<Booking>> viewMoviesByGenre(@PathVariable("date1") LocalDate date1, @PathVariable("date1") LocalDate date2)
+			throws BookingNotFoundException {
+		List<Booking> response = service.viewBookingByDate(date1, date2);
+		return new ResponseEntity<List<Booking>>(response, HttpStatus.OK);
+	}
 
 	
 	}
