@@ -45,32 +45,31 @@ public class EventController {
 		List<Event> response = service.viewEventList();
 		return new ResponseEntity<List<Event>>(response, HttpStatus.OK);
 	}
-	
 
 	@GetMapping("/getevent/{eventid}")
 	public ResponseEntity<String> getEventById(@PathVariable("eventid") Integer eventid) {
 		Event response = service.getEventById(eventid);
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
-	
 
 	@PostMapping("/checkevent/{eventid}")
-	public ResponseEntity<String> checkEventById(@PathVariable("eventid") Integer eventid) throws EventNotFoundException {
+	public ResponseEntity<String> checkEventById(@PathVariable("eventid") Integer eventid)
+			throws EventNotFoundException {
 		boolean response = service.checkEventById(eventid);
 		return new ResponseEntity<String>(HttpStatus.CREATED);
 	}
-	
-	
+
 	@GetMapping("/geteventsbytype/{eventtype}")
-	public ResponseEntity<String> getEventsByType(@PathVariable("eventType") String eventtype) throws EventNotFoundException {
+	public ResponseEntity<String> getEventsByType(@PathVariable("eventType") String eventtype)
+			throws EventNotFoundException {
 		List<Event> response = service.getEventsByType(eventtype);
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/geteventsbylanguuage/{eventlanguage}")
-	public ResponseEntity<String> getEventsByLanguage(@PathVariable("eventLanguage") String eventlanguage) throws EventNotFoundException {
+	public ResponseEntity<String> getEventsByLanguage(@PathVariable("eventLanguage") String eventlanguage)
+			throws EventNotFoundException {
 		List<Event> response = service.getEventsByLanguage(eventlanguage);
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 }
-

@@ -1,6 +1,6 @@
 package com.movie.app.exceptions;
 
-public class EventNotFoundException extends Exception {
+public class UserNotFoundException extends Exception {
 
 	/**
 	 * 
@@ -8,7 +8,7 @@ public class EventNotFoundException extends Exception {
 	private static final long serialVersionUID = 1L;
 	private String message;
 
-	public EventNotFoundException(String message) {
+	public UserNotFoundException(String message) {
 		super();
 		this.message = message;
 	}
