@@ -10,7 +10,11 @@ import com.movie.app.entity.Theatre;
 public interface ITheatreService {
 
 	public List<Theatre> getTheatresBasedOnLocation(String location);
-	public List<Theatre> getTheatresBasedOnMovieAndLocation(String location,String moviename);
+
+	public List<Theatre> getTheatresBasedOnMovieAndLocation(String location, String moviename);
+
 	public String addTheatre(Theatre theatre);
+
 	public String deleteTheatre(Integer theatreId);
+
 }

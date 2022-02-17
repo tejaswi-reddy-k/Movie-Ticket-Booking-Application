@@ -10,7 +10,7 @@ import com.movie.app.repository.ITheatreRepository;
 
 @Service
 public class ITheatreServiceImpl implements ITheatreService {
-	
+
 	@Autowired
 	private ITheatreRepository repository;
 
@@ -29,11 +29,11 @@ public class ITheatreServiceImpl implements ITheatreService {
 		repository.save(theatre);
 		return "Theatre added succesfully";
 	}
-	
+
 	@Override
-	public String deleteTheatre(Integer theatreId)
-	{
+	public String deleteTheatre(Integer theatreId) {
 		repository.deleteById(theatreId);
 		return "Deleted theatre successfully";
 	}
+
 }
