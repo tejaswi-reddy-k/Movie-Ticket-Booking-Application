@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Theatre {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -32,4 +34,17 @@ public class Theatre {
 	private Integer seatCost;
 	@Column(name = "movie_id")
 	private Integer movieId;
+
+	public Theatre(int theatreId, String theatreName, String theatreCity, String theatreLocation, Integer totalSeats,
+			Integer bookedSeats, Integer seatCost) {
+		super();
+		this.theatreId = theatreId;
+		this.theatreName = theatreName;
+		this.theatreCity = theatreCity;
+		this.theatreLocation = theatreLocation;
+		this.totalSeats = totalSeats;
+		this.bookedSeats = bookedSeats;
+		this.seatCost = seatCost;
+	}
+
 }

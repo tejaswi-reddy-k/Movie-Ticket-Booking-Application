@@ -2,37 +2,39 @@ package com.movie.app.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.movie.app.entity.Theatre;
 
-@SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
 public class ITheatreServiceImplTest {
 
 	@Mock
-	ITheatreService theatreservice;
+	ITheatreServiceImpl theatreservice;
 
 	@Test
-	void addTheatre() {
-		when((theatreservice.addTheatre(new Theatre()))).thenReturn("Theatre added Successfully");
-		assertEquals(theatreservice.addTheatre(new Theatre()), "Theatre added successfully");
+	public void addTheatre() {
+		when((theatreservice.addTheatre(new Theatre(100, "Swamy", "guntur", "ap", 100, 0, 100))))
+				.thenReturn("Theatre added Successfully");
+		assertEquals(theatreservice.addTheatre(new Theatre()), "Theatre added Successfully");
 	}
 
 	@Test
-	void deleteTheatre() {
+	public void deleteTheatre() {
 		when((theatreservice.deleteTheatre(1))).thenReturn("Theatre removed Successfully");
-		assertEquals(theatreservice.deleteTheatre(1), "Theatre removed successfully");
+		assertEquals(theatreservice.deleteTheatre(1), "Theatre removed Successfully");
 	}
 
 	@Test
-	void getTheatresBasedOnLocation() {
+	public void getTheatresBasedOnLocation() {
 		when((theatreservice.getTheatresBasedOnLocation("guntur"))).thenReturn(null);
 		assertEquals(theatreservice.getTheatresBasedOnLocation("guntur"), null);
 	}
 
 	@Test
-	void getTheatresBasedOnMovieAndLocation() {
+	public void getTheatresBasedOnMovieAndLocation() {
 		when((theatreservice.getTheatresBasedOnMovieAndLocation("race", "guntur"))).thenReturn(null);
 		assertEquals(theatreservice.getTheatresBasedOnMovieAndLocation("race", "guntur"), null);
 	}
