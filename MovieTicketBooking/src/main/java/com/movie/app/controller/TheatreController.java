@@ -4,16 +4,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.movie.app.entity.Theatre;
 import com.movie.app.service.ITheatreService;
 
+@CrossOrigin(origins = {"http://localhost:8091", "http://localhost:4200"},allowedHeaders = "*")
 @RestController
 public class TheatreController {
 
@@ -40,8 +43,14 @@ public class TheatreController {
 	}
 
 	@PostMapping("/addTheatre")
-	public ResponseEntity<String> addTheatre(@RequestBody Theatre theatre) {
-		String response = service.addTheatre(theatre);
+	public ResponseEntity<String> addTheatre(@RequestHeader(name = "movieId") Integer movieId,@RequestBody Theatre theatre) {
+		String response = service.addTheatre(theatre,movieId);
 		return new ResponseEntity<String>(response, HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/viewalltheatres")
+	public ResponseEntity<List<com.movie.app.model.Theatre>> viewTheatres() {
+		List<com.movie.app.model.Theatre> response = service.viewTheatreList();
+		return new ResponseEntity<List<com.movie.app.model.Theatre>>(response, HttpStatus.OK);
 	}
 }

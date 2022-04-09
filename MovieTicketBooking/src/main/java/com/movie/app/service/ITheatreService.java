@@ -13,8 +13,10 @@ public interface ITheatreService {
 
 	public List<Theatre> getTheatresBasedOnMovieAndLocation(String location, String moviename);
 
-	public String addTheatre(Theatre theatre);
+	public String addTheatre(Theatre theatre,Integer movieId);
 
 	public String deleteTheatre(Integer theatreId);
+
+	public List<com.movie.app.model.Theatre> viewTheatreList();
 
 }

@@ -17,10 +17,10 @@ public class IMovieServiceImplTest {
 
 	@Test
 	public void addMovieTest() {
-		when(movieservice.addMovie(new Movie(1, "race", "thriller", "2hrs", "hindi", "good movie", 4.0)))
-				.thenReturn("Movie added successfully");
-		assertEquals(movieservice.addMovie(new Movie(1, "race", "thriller", "2hrs", "hindi", "good movie", 4.0)),
-				"Movie added successfully");
+		when(movieservice.addMovie(new com.movie.app.model.Movie(1, "race", "thriller", "2hrs", "hindi", "good movie", 4.0)))
+				.thenReturn("Movie race added successfully with movieid 1");
+		assertEquals(movieservice.addMovie(new com.movie.app.model.Movie(1, "race", "thriller", "2hrs", "hindi", "good movie", 4.0)),
+				"Movie race added successfully with movieid 1");
 	}
 
 	@Test

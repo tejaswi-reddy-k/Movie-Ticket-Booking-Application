@@ -16,9 +16,9 @@ public class ITheatreServiceImplTest {
 
 	@Test
 	public void addTheatre() {
-		when((theatreservice.addTheatre(new Theatre(100, "Swamy", "guntur", "ap", 100, 0, 100))))
+		when((theatreservice.addTheatre(new Theatre(100, "Swamy", "guntur", "ap", 100,100),1)))
 				.thenReturn("Theatre added Successfully");
-		assertEquals(theatreservice.addTheatre(new Theatre()), "Theatre added Successfully");
+		assertEquals(theatreservice.addTheatre(new Theatre(),1), "Theatre added Successfully");
 	}
 
 	@Test

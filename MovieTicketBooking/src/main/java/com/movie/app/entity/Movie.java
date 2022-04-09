@@ -7,8 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -32,11 +31,8 @@ public class Movie {
 	private String movieDescription;
 	@Column(name = "movie_rating")
 	private double rating;
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "theatre_id")
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private List<Theatre> listOfTheatres;
-	@Column(name = "theatre_id")
-	private Integer theatre_id;
 
 	public Movie(Integer movieId, String movieName, String movieGenre, String movieHours, String movieLanguage,
 			String movieDescription, double rating) {
